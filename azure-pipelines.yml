@@ -10,6 +10,12 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+- script: |
+    echo Fetching build
+    git clone git@github.com:tomaszmichalak/modules-a-with-azure-pipeline.git
+    gradle -p modules-a-with-azure-pipeline clean publishToMavenLocal
+  displayName: 'Build Module A with Gradle'
+
 - task: Gradle@2
   inputs:
     workingDirectory: ''
