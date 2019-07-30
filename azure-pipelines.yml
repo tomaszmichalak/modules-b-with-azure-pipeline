@@ -14,6 +14,8 @@ steps:
   inputs:
     script: |
       ./clone_test.sh
+      cd knotx-stack
+      ls -al
 
 #- task: PowerShell@2
 #  inputs:
