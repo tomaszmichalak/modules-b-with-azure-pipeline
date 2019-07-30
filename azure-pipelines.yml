@@ -13,4 +13,3 @@ steps:
 - task: PowerShell@2
   inputs:
     filePath: 'clone_test.sh'
-    workingDirectory: 'modules-b-with-azure-pipeline'
