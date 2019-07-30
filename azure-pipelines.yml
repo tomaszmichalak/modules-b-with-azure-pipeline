@@ -17,6 +17,11 @@ steps:
     mkdir test
   displayName: 'Build Module A with Gradle'
 
+- task: PowerShell@2
+  inputs:
+    filePath: 'clone-test.sh'
+    arguments: '-r modules -b $(Build.SourceBranchName) -a $(System.AccessToken)'
+
 - task: Gradle@2
   inputs:
     workingDirectory: ''
