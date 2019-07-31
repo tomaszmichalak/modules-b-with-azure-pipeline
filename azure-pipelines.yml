@@ -17,6 +17,9 @@ steps:
       cd knotx-stack
       ls -al
       echo "PR source branch [$(System.PullRequest.SourceBranch)]"
+      BRANCH_NAME = ''
+      if [ -z "$(System.PullRequest.SourceBranch)" ]; then BRANCH_NAME="$(System.PullRequest.SourceBranch)"; else BRANCH_NAME="$(Build.SourceBranchName)"; fi
+      echo "Calculated branch name $BRANCH_NAME"
 
 #- task: PowerShell@2
 #  inputs:
