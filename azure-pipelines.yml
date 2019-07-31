@@ -16,6 +16,7 @@ steps:
       ./clone_test.sh
       cd knotx-stack
       ls -al
+      echo "PR source branch [$(System.PullRequest.SourceBranch)]"
 
 #- task: PowerShell@2
 #  inputs:
