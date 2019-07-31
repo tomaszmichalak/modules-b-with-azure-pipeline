@@ -17,10 +17,10 @@ steps:
       cd knotx-stack
       ls -al
       echo "PR source branch [$(System.PullRequest.SourceBranch)]"
-      if [[ -z "$(System.PullRequest.SourceBranch)"]]; then
-        ./pull-all.sh -r ../../knotx-repos -b $(Build.SourceBranchName) -a
+      if [[ -z "$(System.PullRequest.SourceBranch)" ]] ; then
+        echo "Branch name $(Build.SourceBranchName)"
       else
-        ./pull-all.sh -r ../../knotx-repos -b $(System.PullRequest.SourceBranch) -a
+        echo "PR branch name $(System.PullRequest.SourceBranch)"
       fi
 
 #- task: PowerShell@2
