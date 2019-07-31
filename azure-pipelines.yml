@@ -17,11 +17,12 @@ steps:
       cd knotx-stack
       ls -al
       echo "PR source branch [$(System.PullRequest.SourceBranch)]"
-      if ("$(System.PullRequest.SourceBranch)" -eq '') {
+      if [[ -z "$(System.PullRequest.SourceBranch)"]]; then
         ./pull-all.sh -r ../../knotx-repos -b $(Build.SourceBranchName) -a
-      } else {
+      else
         ./pull-all.sh -r ../../knotx-repos -b $(System.PullRequest.SourceBranch) -a
-      }
+      fi
+
 #- task: PowerShell@2
 #  inputs:
 #    filePath: 'clone_test.sh'
